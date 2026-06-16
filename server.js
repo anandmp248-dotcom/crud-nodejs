@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const userRoute = require("./routes/userRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 require("dotenv").config();
 
 const app = express()
@@ -16,6 +18,8 @@ mongoose.connect(process.env.MONGO_URL)
     .catch(err => console.log(err));
 
 app.use("/users", userRoute);
+app.use("/category", categoryRoutes);
+app.use("/blogs", blogRoutes);
 
 // app.listen(5000, () => {
 //     console.log("Server running on port 5000");
